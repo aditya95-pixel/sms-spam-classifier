@@ -10,6 +10,8 @@ from nltk.stem.porter import PorterStemmer
 local_nltk_path = os.path.join(os.path.dirname(__file__), "nltk_data")
 nltk.data.path.append(local_nltk_path)
 
+print(nltk.data.path)
+
 ps = PorterStemmer()
 
 def transform_text(text):
