@@ -6,15 +6,16 @@ import os
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 
-# Set NLTK data path
-nltk.data.path.append(os.path.join(os.path.dirname(__file__), "nltk_data"))
+# Use local nltk_data folder
+local_nltk_path = os.path.join(os.path.dirname(__file__), "nltk_data")
+nltk.data.path.append(local_nltk_path)
 
 ps = PorterStemmer()
 
 def transform_text(text):
     text = text.lower()
     text = nltk.word_tokenize(text)
-    
+
     y = []
     for i in text:
         if i.isalnum():
@@ -30,7 +31,7 @@ def transform_text(text):
     y.clear()
     for i in text:
         y.append(ps.stem(i))
-    
+
     return " ".join(y)
 
 # Load models
